@@ -1,16 +1,25 @@
 .PHONY: build run test clean stop bootjar tests
+JVM = java
+
+default: stop clean build run 
+
 
 build:
 	./gradlew build
 
 run:
 	./gradlew bootRun
+runjar:
+	$(JVM) -jar ./build/libs/demo-0.0.1-SNAPSHOT.jar
 
 test:
 	./gradlew test
 
 clean:
 	./gradlew clean
+
+assemble:
+	./gradlew assemble
 
 bootjar:
 	./gradlew bootJar
